@@ -77,3 +77,75 @@ main()
     solve();
     return 0;
 }
+
+
+
+
+
+
+#include<bits/stdc++.h>
+#define ll long long
+#define int long long
+using namespace std;
+const ll N = 1e7 + 5;
+vector<int> prime;
+vector<bool> sieve_algo(N,true);
+void sieve()
+{
+    sieve_algo[0]=false;
+    sieve_algo[1]=false;
+    for(int i=2;i<N;i++)
+    {
+        if(sieve_algo[i])
+        {
+            prime.push_back(i);
+            for(int j=i*i;j<N;j+=i)
+            {
+                sieve_algo[j]=false;
+            }
+        }
+    }
+}
+string binary_convert(int n)
+{
+    string s;
+    for(int i=0;i<=32;i++)
+    {
+        if((n>>i)&1)s.push_back('1');
+        else s.push_back('0');
+    }
+    return s;
+}
+
+vector<int> div(int n)
+{
+    vector<int> v;
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            v.push_back(i);
+            if(n/i != i)v.push_back(n/i);
+        }
+    }
+    sort(v.begin(),v.end());
+    return v;
+}
+void float_num(float num)
+{
+    std::cout <<std::fixed<< std::setprecision(10) << num << endl;
+} 
+void solve()
+{
+   
+}
+main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    ll t=1;cin>>t;
+    while(t--)
+    {
+        solve();
+    }
+    return 0;
+}
